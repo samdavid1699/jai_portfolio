@@ -1,0 +1,312 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}Jai | Full Stack Python Developer{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            <span class="status-dot"></span>
+            FULL STACK PYTHON DEVELOPER
+        </p>
+
+        <h1>
+            Hi, I'm <span>Jai.</span><br>
+            I build web applications.
+        </h1>
+
+        <p class="hero-description">
+            I'm a Full Stack Python Developer passionate about
+            building dynamic, responsive and user-friendly web
+            applications using Python, Django and modern web
+            technologies.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#projects" class="button primary">
+                View My Projects ↗
+            </a>
+
+            <a href="#contact" class="button secondary">
+                Contact Me
+            </a>
+        </div>
+
+        <div class="hero-stats">
+            <div>
+                <h3>Python</h3>
+                <p>Programming</p>
+            </div>
+
+            <div>
+                <h3>Django</h3>
+                <p>Web Development</p>
+            </div>
+
+            <div>
+                <h3>SQL</h3>
+                <p>Database Management</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="code-card">
+
+            <div class="code-header">
+                <span class="window-dot red"></span>
+                <span class="window-dot yellow"></span>
+                <span class="window-dot green"></span>
+                <span>developer.py</span>
+            </div>
+
+            <pre><code><span class="code-purple">class</span> Developer:
+
+    name = <span class="code-green">"Jai"</span>
+    role = <span class="code-green">"Python Developer"</span>
+
+    skills = [
+        <span class="code-green">"Python"</span>,
+        <span class="code-green">"Django"</span>,
+        <span class="code-green">"HTML & CSS"</span>,
+        <span class="code-green">"SQL"</span>
+    ]
+
+    <span class="code-purple">def</span> build_projects(self):
+        <span class="code-purple">return</span> <span class="code-green">"Ideas into reality"</span></code></pre>
+
+            <div class="code-footer">
+                <span>● Developer Portfolio</span>
+                <span>Python · Django</span>
+            </div>
+        </div>
+
+        <div class="floating-badge">
+            ⚡ Building with Python
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section class="section about" id="about">
+
+    <div class="section-heading">
+        <p class="eyebrow">01 / ABOUT ME</p>
+
+        <h2>
+            Building useful solutions with
+            <span>Python and Django.</span>
+        </h2>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-mark">
+            J<span>.</span>
+        </div>
+
+        <div>
+            <p>
+                Hello! I'm Jai, a Full Stack Python Developer
+                interested in developing practical and efficient
+                web applications.
+            </p>
+
+            <p>
+                I have built a Student Portal using Django,
+                implementing student data management and CRUD
+                functionality. Through this project, I have worked
+                with Django views, templates, models and database
+                integration.
+            </p>
+
+            <p>
+                I enjoy learning new technologies, solving
+                programming problems and improving my development
+                skills by building real-world projects.
+            </p>
+
+            <a href="#projects" class="text-link">
+                Explore my work ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SKILLS SECTION -->
+<section class="section skills" id="skills">
+
+    <div class="section-heading">
+        <p class="eyebrow">02 / TECHNICAL SKILLS</p>
+
+        <h2>
+            My development
+            <span>toolkit.</span>
+        </h2>
+
+        <p>
+            Technologies I use to build web applications,
+            manage data and create user interfaces.
+        </p>
+    </div>
+
+    <div class="skills-grid">
+        {% for skill in skills %}
+        <div class="skill-card">
+            <span class="skill-icon">✳</span>
+            <span>{{ skill }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+<!-- PROJECTS SECTION -->
+<section class="section projects" id="projects">
+
+    <div class="section-heading">
+        <p class="eyebrow">03 / MY PROJECTS</p>
+
+        <h2>
+            Projects built with
+            <span>purpose.</span>
+        </h2>
+
+        <p>
+            Applications that demonstrate my programming,
+            problem-solving and web development skills.
+        </p>
+    </div>
+
+    <div class="project-grid">
+
+        {% for project in projects %}
+
+        <article class="project-card">
+
+            <div class="project-top">
+                <span class="project-icon">⌘</span>
+
+                {% if project.featured %}
+                <span class="featured">FEATURED</span>
+                {% endif %}
+            </div>
+
+            <h3>{{ project.title }}</h3>
+
+            <p>{{ project.description }}</p>
+
+            <div class="tech-list">
+                <span>{{ project.technologies }}</span>
+            </div>
+
+            <div class="project-links">
+
+                {% if project.github_url %}
+                <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer">
+                    GitHub ↗
+                </a>
+                {% endif %}
+
+                {% if project.live_url %}
+                <a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer">
+                    Live Demo ↗
+                </a>
+                {% endif %}
+
+            </div>
+
+        </article>
+
+        {% empty %}
+
+        <article class="project-card">
+            <div class="project-top">
+                <span class="project-icon">⌘</span>
+                <span class="featured">MY FIRST PROJECT</span>
+            </div>
+
+            <h3>Student Portal</h3>
+
+            <p>
+                A Django-based web application for managing
+                student information, with CRUD operations
+                and database integration.
+            </p>
+
+            <div class="tech-list">
+                <span>Python</span>
+                <span>Django</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>SQLite</span>
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section class="section contact" id="contact">
+
+    <div class="contact-grid">
+
+        <div>
+            <p class="eyebrow">04 / CONTACT ME</p>
+
+            <h2>
+                Let's build something
+                <span>together.</span>
+            </h2>
+
+            <p>
+                I'm interested in connecting with developers,
+                recruiters and teams working on exciting
+                software projects.
+            </p>
+
+            <p class="contact-note">
+                Have an opportunity? Let's talk!
+            </p>
+        </div>
+
+        <form action="{% url 'contact' %}" method="post" class="contact-form">
+
+            {% csrf_token %}
+
+            <label for="name">Your name</label>
+            <input id="name" type="text" name="name" maxlength="100" placeholder="Enter your name" required>
+
+            <label for="email">Email address</label>
+            <input id="email" type="email" name="email" maxlength="254" placeholder="you@example.com" required>
+
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" name="subject" maxlength="150" placeholder="Let's discuss an opportunity"
+                required>
+
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" rows="5" maxlength="10000" placeholder="Write your message here..."
+                required></textarea>
+
+            <button type="submit" class="button primary">
+                Send Message ↗
+            </button>
+
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}
